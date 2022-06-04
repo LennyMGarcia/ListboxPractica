@@ -1,0 +1,38 @@
+﻿<Window x:Class="ListboxPractica.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ListboxPractica"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <ListBox Name="listaPoblaciones" HorizontalAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                            <ColumnDefinition Width="150"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" PreviewMouseDown="TextBlock_PreviewMouseDown" Text="{Binding poblacion1}"></TextBlock>
+                        <TextBlock Grid.Column="1" PreviewMouseDown="TextBlock_PreviewMouseDown" Text="{Binding temperatura1}"></TextBlock>
+                        <TextBlock Grid.Column="2" PreviewMouseDown="TextBlock_PreviewMouseDown" Text="{Binding poblacion2}"></TextBlock>
+                        <TextBlock Grid.Column="3" PreviewMouseDown="TextBlock_PreviewMouseDown" Text="{Binding temperatura2}"></TextBlock>
+                        <ProgressBar Grid.Column="4" Maximum="30" Minimum="0" Value="{Binding DIferenciaTemp}">
+                        </ProgressBar>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Row="1" FontSize="32" Width="400" Height="100" Click="Button_Click">Dale</Button>
+    </Grid>
+</Window>
